@@ -7,7 +7,9 @@
 */
 int main(void)
 {
-	fprintf(stderr, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
+char a[] = "and that piece of art is useful\" - ";
+char b[] = "Dora Korpar, 2015-10-19";
+	fprintf(stderr, "%s%s\n", a, b);
 	return (1);
 }
 
