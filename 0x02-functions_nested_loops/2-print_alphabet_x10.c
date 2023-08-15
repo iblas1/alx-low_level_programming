@@ -7,6 +7,11 @@
 */
 
 void print_alphabet_x10(void)
+/**
+*main - entry point
+*
+*print_alphabet - prints lower case alphabets
+*/
 {
 	char a, b;
 

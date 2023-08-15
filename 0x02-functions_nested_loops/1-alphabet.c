@@ -6,6 +6,11 @@
 */
 
 void print_alphabet(void)
+/**
+*main - entry point
+*
+*print_alphabet - prints lower case alphabets
+*/
 {
 	char a;
 
