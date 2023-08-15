@@ -1,12 +1,10 @@
 #include "main.h"
-/* more headers goes there */
 /**
 *main - entry point
-*function that print small letter
+*print_alphabet_x10 - prints lower case 10 times
 *
 *Return: Always 0 (Sucess)
 */
-/* betty style doc for function main goes there */
 
 void print_alphabet(void)
 {
