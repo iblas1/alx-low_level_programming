@@ -19,8 +19,8 @@ for (row = 0; row <= 9; row++)
 	}
 	else
 	printf("%2d, ", row * col);
-	putchar('\n');
 	}
+	putchar('\n');
 }
 }
 
