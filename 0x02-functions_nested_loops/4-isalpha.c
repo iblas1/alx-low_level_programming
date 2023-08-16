@@ -1,4 +1,3 @@
-#include <stdio.h>
 /**
  * _isalpha - reveal an alphabet letter
  * @c: letter to check
