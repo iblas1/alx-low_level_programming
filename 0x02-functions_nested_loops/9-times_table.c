@@ -1,9 +1,9 @@
 #include "main.h"
 #include <stdio.h>
 /**
- *times_table - print a sign of a number
- * Return: Success (0)
- */
+*get_integer - get a number
+* @i: the integer
+*/
 void get_integer(int i)
 {
 	if (i / 10)
@@ -12,6 +12,10 @@ void get_integer(int i)
 	}
 	_putchar(i % 10 + '0');
 }
+
+/**
+*times_table - print a sign of a number
+*/
 
 void times_table(void)
 {
@@ -33,10 +37,4 @@ for (row = 0; row <= 9; row++)
 	}
 	putchar('\n');
 }
-}
-
-int main(void)
-{
-    times_table();
-    return (0);
 }
