@@ -15,10 +15,10 @@ int _islower(int c)
 	result = isupper(c);
 	if (result)
 	{
-	_putchar(1 + '0');
+	_putchar(0 + '0');
 	}
 	else
-	_putchar(0 + '0');
+	_putchar(1 + '0');
 
 	_putchar('\n');
 
