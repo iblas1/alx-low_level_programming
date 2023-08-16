@@ -13,12 +13,14 @@ for (row = 0; row <= 9; row++)
 {
 	for (col = 0; col <= 9; col++)
 	{
-	if (col > 0)
+	if (col == 9)
 	{
-	printf(",");
+	printf("%2d", row * col);
 	}
+	else
 	printf("%2d, ", row * col);
 	}
 	putchar('\n');
 }
 }
+
