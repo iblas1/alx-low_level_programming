@@ -15,10 +15,10 @@ for (row = 0; row <= 9; row++)
 	{
 	if (col == 9)
 	{
-	printf("%2d", row * col);
+	printf("%d", row * col);
 	}
 	else
-	printf("%2d, ", row * col);
+	printf("%d, ", row * col);
 	}
 	putchar('\n');
 }
