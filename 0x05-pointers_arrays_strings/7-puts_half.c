@@ -33,7 +33,7 @@ void puts_half(char *str)
 
 	if (length % 2 == 0)
 	counter = even_average;
-	else
+	else if (length % 2 == 1)
 	counter = odd_average;
 
 	while (str[counter] != '\0')
