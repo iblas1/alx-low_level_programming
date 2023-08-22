@@ -18,7 +18,6 @@ int _strlen(char *s)
 	return (length);
 }
 
-
 /**
 * puts_half - print every other chracter
 * @str: string
@@ -34,13 +33,10 @@ void puts_half(char *str)
 
 	if (length % 2 == 0)
 	counter = even_average;
-	else
+	else if (length % 2 == 1)
 	counter = odd_average;
 
-	while (counter < length && str[counter] == ' ')
-	counter++;
-
-	while (counter < length)
+	while (str[counter] != '\0')
 	{
 		_putchar(str[counter]);
 		counter++;
