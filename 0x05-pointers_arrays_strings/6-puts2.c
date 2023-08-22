@@ -10,7 +10,7 @@ void puts2(char *str)
 	int counter;
 
 	counter = 0;
-	while (str[counter] != '\0')
+	while (counter <= _strlen(str))
 	{
 		_putchar(str[counter]);
 		counter += 2;
