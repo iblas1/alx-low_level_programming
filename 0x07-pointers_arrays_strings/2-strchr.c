@@ -1,10 +1,9 @@
 #include "main.h"
 
 /**
-* _memset - fill area of memory with
+* _strchr - fill area of memory with
 * @s: pointed by s
-* @b: with constant byte
-* @n: fill n bytes of the memory
+* @c: with constant byte
 * Return: concatenated string
 */
 
@@ -14,7 +13,7 @@ char *_strchr(char *s, char c)
 	{
 		if (*s == c)
 		{
-			return s;
+			return (s);
 		}
 		s++;
 	}
