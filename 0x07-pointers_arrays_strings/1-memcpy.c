@@ -15,12 +15,13 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 	char *source_pointer = src;
 	unsigned int i;
 
-	for (i = 0; i < n; i++) {
+	for (i = 0; i < n; i++)
+	{
 		*destination_pointer = *source_pointer;
 		destination_pointer++;
 		source_pointer++;
 	}
 
-	return dest;
+	return (dest);
 }
 
