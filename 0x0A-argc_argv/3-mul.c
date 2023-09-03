@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 	int result;
 	(void)argc;
-	
+
 	if (argc > 2)
 	{
 		result = atoi(argv[1]) * atoi(argv[2]);
