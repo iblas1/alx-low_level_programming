@@ -30,9 +30,26 @@ int _strlen(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	unsigned int i = 0;
-	size_t length = _strlen(s1);
-	size_t length_2 = _strlen(s2);
-	char *destination = (char *)malloc((length + length_2) + sizeof(char));
+	size_t length;
+	size_t length_2;
+	char *destination;
+
+	if (s1 == NULL)
+	{
+	s1 = "";
+	}
+	if (s2 == NULL)
+	{
+	s2 = "";
+	}
+
+	length = _strlen(s1);
+	length_2 = _strlen(s2);
+
+	destination = malloc((length + length_2 + 1) * sizeof(char));
+
+	if (destination == NULL)
+	return (NULL);
 
 	while (*s1 != '\0')
 	{
