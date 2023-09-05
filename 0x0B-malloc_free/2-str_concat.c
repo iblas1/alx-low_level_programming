@@ -32,7 +32,7 @@ char *str_concat(char *s1, char *s2)
 	unsigned int i = 0;
 	size_t length = _strlen(s1);
 	size_t length_2 = _strlen(s2);
-	char *destination = (char *)malloc((length + length_2) + sizeof(char) + 1);
+	char *destination = (char *)malloc((length + length_2) + sizeof(char));
 
 	while (*s1 != '\0')
 	{
