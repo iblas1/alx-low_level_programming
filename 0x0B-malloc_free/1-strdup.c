@@ -30,15 +30,16 @@ char *_strdup(char *str)
 {
 	int i = 0;
 	size_t string_len;
-	char *string_copy = (char *)malloc((sizeof(char) * string_len) + 1);
-
-	if (string_copy == NULL)
-	return (NULL);
+	char *string_copy;
 
 	if (str == NULL)
 	return (NULL);
 
 	string_len = _strlen(str);
+
+	string_copy = (char *)malloc((sizeof(char) * string_len) + 1);
+	if (string_copy == NULL)
+	return (NULL);
 
 	while (*str != '\0')
 	{
