@@ -3,19 +3,19 @@
 #include <stdio.h>
 
 /**
-* alloc_grid - to concatenate a string to an allocated memory
-* @width: destination string
-* @height: source string
+* argstostr - to concatenate argument given and separate by \n
+* @ac: no of args
+* @av: args
 * Return: pointer to the array created
 */
 
 char *argstostr(int ac, char **av)
-{	
+{
 	int i, j, count = 0;
 	char *arg, *concat;
 
 	if (!ac || av == NULL)
-	return NULL;
+	return (NULL);
 
 	for (i = 0; i < ac; i++)
 	{
@@ -27,7 +27,7 @@ char *argstostr(int ac, char **av)
 	}
 	concat = malloc(count + i + 1 * sizeof(char));
 	if (!concat)
-	return NULL;
+	return (NULL);
 
 	count = 0;
 	for (i = 0; i < ac; i++)
@@ -39,7 +39,7 @@ char *argstostr(int ac, char **av)
 		}
 		concat[count++] = '\n';
 	}
-	concat[count+1] = '\0';
+	concat[count + 1] = '\0';
 
-	return concat;
+	return (concat);
 }
