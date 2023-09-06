@@ -29,7 +29,7 @@ int _strlen(char *s)
 char *_strdup(char *str)
 {
 	int i = 0;
-	size_t string_len = _strlen(str);
+	size_t string_len;
 	char *string_copy = (char *)malloc((sizeof(char) * string_len) + 1);
 
 	if (string_copy == NULL)
@@ -37,7 +37,9 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 	return (NULL);
-	
+
+	string_len = _strlen(str);
+
 	while (*str != '\0')
 	{
 		string_copy[i] = *str;
