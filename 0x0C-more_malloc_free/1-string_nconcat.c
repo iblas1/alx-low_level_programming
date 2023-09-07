@@ -64,7 +64,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		j++;
 		
 	}
-	destination[i + 1] = '\0';
+    printf("%i,i is %i \n", _strlen(destination), i);
+	destination[i] = '\0';
+    printf("%i\n", _strlen(destination));
 
 	return (destination);
 }
