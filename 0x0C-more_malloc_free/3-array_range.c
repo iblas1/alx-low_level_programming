@@ -3,9 +3,9 @@
 #include <stdio.h>
 
 /**
-* _calloc - to concatenate a string to an allocated memory
-* @nmemb: destination string
-* @size: source string
+* array_range to concatenate a string to an allocated memory
+* @min: destination string
+* @max: source string
 * Return: pointer to the array created
 */
 
