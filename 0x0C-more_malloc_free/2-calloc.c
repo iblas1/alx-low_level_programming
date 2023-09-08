@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
 * _calloc - to concatenate a string to an allocated memory
@@ -18,6 +19,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	if (!mem)
 	return (NULL);
+
+	memset(mem, 0, nmemb * size);
 
 	return (mem);
 }
