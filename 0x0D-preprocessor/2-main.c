@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-/*
-*main - entry point
-*function that assign random number
+/**
+* main - entry point
+* function that assign random number
 *
-*Return: Always 0 (Sucess)
+* Return: Always 0 (Sucess)
 */
 
 int main(void)
