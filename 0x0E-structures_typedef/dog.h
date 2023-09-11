@@ -1,3 +1,5 @@
+#ifndef PI_H
+#define PI_H
 
 /**
  * struct dog - Short description
@@ -9,8 +11,9 @@
  */
 struct dog
 {
-	char* name;
+	char *name;
 	float age;
-	char* owner;
+	char *owner;
 };
 
+#endif /*PI_H*/
