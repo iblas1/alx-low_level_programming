@@ -1,15 +1,11 @@
 #include "lists.h"
 
-/**
-* add_function - fill area of memory with
-* @function: gfujjd
-*/
 
-
+Node* leading_node = NULL;
 
 void add_function(void (*function)(void))
 {
-	Node *recent_node = (Node *)malloc(sizeof(Node));
+	Node* recent_node = (Node*)malloc(sizeof(Node));
 
 	if (recent_node == NULL)
 	{
@@ -21,10 +17,6 @@ void add_function(void (*function)(void))
 	leading_node = recent_node;
 }
 
-/**
-* before_main_message - fill area of memory with
-*/
-
 void before_main_message(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
@@ -32,10 +24,6 @@ void before_main_message(void)
 }
 
 __attribute__((constructor))
-
-/**
-* register_message_function - fill area of memory with
-*/
 
 void register_message_function(void)
 {

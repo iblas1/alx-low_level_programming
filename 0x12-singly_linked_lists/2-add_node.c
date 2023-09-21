@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
 * add_node - return the length of a string
 * @str: string
