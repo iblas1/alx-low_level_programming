@@ -42,5 +42,6 @@ void add_function(void (*function)(void));
 void before_main_message(void);
 void register_message_function(void);
 list_t *add_node_end(list_t **head, const char *str);
+void free_list(list_t *head);
 
 #endif /*LIST_H*/
