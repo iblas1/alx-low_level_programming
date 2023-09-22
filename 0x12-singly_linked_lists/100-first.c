@@ -1,11 +1,16 @@
 #include "lists.h"
 
+/**
+* add_function - return the length of a string
+* @function: string
+* Return: Sucess (0)
+*/
 
-Node* leading_node = NULL;
 
 void add_function(void (*function)(void))
 {
-	Node* recent_node = (Node*)malloc(sizeof(Node));
+Node *leading_node = NULL;
+	Node *recent_node = (Node *)malloc(sizeof(Node));
 
 	if (recent_node == NULL)
 	{
@@ -17,6 +22,10 @@ void add_function(void (*function)(void))
 	leading_node = recent_node;
 }
 
+/**
+* before_main_message - return the length of a string
+*/
+
 void before_main_message(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
@@ -25,6 +34,9 @@ void before_main_message(void)
 
 __attribute__((constructor))
 
+/**
+* register_message_function - return the length of a string
+*/
 void register_message_function(void)
 {
 	add_function(before_main_message);
