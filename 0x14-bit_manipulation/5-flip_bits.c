@@ -1,13 +1,14 @@
 #include "main.h"
 
 /**
- * clear_bit - length of linked list
+ * flip_bits - length of linked list
  * @n: b
- * @index: index
+ * @m: index
  * Return: amount of elements
  */
 
-unsigned int flip_bits(unsigned long int n, unsigned long int m) {
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
+{
 	unsigned long int xor_outcome = n ^ m;
 	unsigned int result = 0;
 
