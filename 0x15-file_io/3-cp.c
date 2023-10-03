@@ -64,7 +64,6 @@ int main(int argc, char *argv[])
 	coming = open(argv[1], O_RDONLY);
 	ruler = read(coming, buffing, 1024);
 	going = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
 	do {
 		if (coming == -1 || ruler == -1)
 		{
