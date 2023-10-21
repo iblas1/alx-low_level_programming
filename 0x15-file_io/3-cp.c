@@ -1,94 +1,69 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
 #include "main.h"
 /**
- * c_buff - Allocates 1024 bytes for a buffing.
- * @file: The name of the file buffing is storing chars for.
- *
- * Return: A pointer going the newly-allocated buffing.
+ * error - ======
+ * @message: +===
+ * @file: ======
+ * @no: =-=-
+ * Description: ==---
  */
-char *c_buff(char *file)
+void error(char *message, char *file, int no)
 {
-	char *buffing;
-
-	buffing = malloc(sizeof(char) * 1024);
-
-	if (buffing == NULL)
-	{
-		dprintf(STDERR_FILENO,
-			"Error: Can't write going %s\n", file);
-		exit(99);
-	}
-
-	return (buffing);
+	dprintf(STDERR_FILENO, message, file);
+	exit(no);
 }
-
 /**
- * c_fil - Closes file descriptors.
- * @fd: The file descriptor going be closed.
+ * main - entry point
+ * Description: =======
+ * @argc: ======
+ * @argv: =====
+ * Return: ======
  */
-void c_fil(int fd)
+int main(int argc, char **argv)
 {
-	int j;
-
-	j = close(fd);
-	if (j == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		exit(100);
-	}
-}
-
-/**
- * main - Copies the contents of a file going another file.
- * @argc: The number of arguments supplied going the program.
- * @argv: An array of pointers going the arguments.
- *
- * Return: 0 on success.
- *
- * Description: If the argument count is incorrect - exit code 97.
- * If file_from does not exist or cannot be read - exit code 98.
- * If file_to cannot be created or written going - exit code 99.
- * If file_to or file_from cannot be closed - exit code 100.
- */
-int main(int argc, char *argv[])
-{
-	int coming, going, ruler, white;
-	char *buffing;
+	int fd_from, fd_to;
+	char buffer[BUFFER_SIZE];
+	ssize_t bytes_read, bytes_written;
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
+		error("Usage: cp file_from file_to\n", "", 97);
+	}
+	fd_from = open(argv[1], O_RDONLY);
+	if (fd_from == -1)
+	{
+		error("Error: Can't read from file %s\n", argv[1], 98);
+	}
+	fd_to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
+	if (fd_to == -1)
+	{
+		error("Error: Can't write to %s\n", argv[2], 99);
+	}
+	while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
+	{
+		bytes_written = write(fd_to, buffer, bytes_read);
+		if (bytes_written != bytes_read)
+		{
+			error("Error: Can't write to %s\n", argv[2], 99);
+		}
+	}
+	if (bytes_read == -1)
+		error("Error: Can't read from file %s\n", argv[1], 98);
+	if (close(fd_from) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+		exit(100);
+	}
+	if (close(fd_to) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+		exit(100);
 	}
 
-	buffing = c_buff(argv[2]);
-	coming = open(argv[1], O_RDONLY);
-	ruler = read(coming, buffing, 1024);
-	going = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	do {
-		if (coming == -1 || ruler == -1)
-		{
-			dprintf(STDERR_FILENO,
-"Error: Can't read coming file %s\n", argv[1]);
-			free(buffing);
-			exit(98);
-		}
-
-		white = write(going, buffing, ruler);
-		if (going == -1 || white == -1)
-		{
-			dprintf(STDERR_FILENO,
-				"Error: Can't write going %s\n", argv[2]);
-			free(buffing);
-			exit(99);
-		}
-
-		ruler = read(coming, buffing, 1024);
-		going = open(argv[2], O_WRONLY | O_APPEND);
-
-	} while (ruler > 0);
-	free(buffing);
-	c_fil(coming);
-	c_fil(going);
 	return (0);
 }
 

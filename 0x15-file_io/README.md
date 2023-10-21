@@ -1,1 +1,1 @@
-file i/o
+file io read write open 

@@ -1,41 +1,36 @@
+#include <sys/types.h>
+#include <string.h>
+#include <sys/stat.h>
 #include "main.h"
 
 /**
- * create_file - read file
- * @filename: file name
- * @text_content: no of letter to read
- * Return: bytes read.
+ * create_file - creates a file
+ * @filename: name of file
+ * @text_content: file  contents
+ * Return: 1 on success OR -1 on faliure
  */
-
 int create_file(const char *filename, char *text_content)
 {
-	int f_t_c;
+	ssize_t bytes_written;
+	int fd;
 
 	if (filename == NULL)
-	{
 		return (-1);
-	}
 
-	f_t_c = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
-	if (f_t_c == -1)
-	{
-		perror("open");
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	if (fd == -1)
 		return (-1);
-	}
 
 	if (text_content != NULL)
 	{
-		ssize_t bytes_written = write(f_t_c, text_content, strlen(text_content));
-
+		bytes_written = write(fd, text_content, strlen(text_content));
 		if (bytes_written == -1)
 		{
-			perror("write");
-			close(f_t_c);
+			close(fd);
 			return (-1);
 		}
 	}
-
-	close(f_t_c);
+	close(fd);
 	return (1);
 }
 
